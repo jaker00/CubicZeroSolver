@@ -15,9 +15,9 @@ public class CubicZeroSolver {
         double[] end = new double[m];
 
         int i, j = 0; //create an array for lead coefficient
-        for (i = 1; i < n; i++) {
+        for (i = 1; i <= n; i++) {
             if (n % i == 0) {
-                lead[j] = i-1;
+                lead[j] = i;
                 j++;
             }
         }
@@ -28,9 +28,9 @@ public class CubicZeroSolver {
 //        lead = Arrays.copyOf(lead, i);
 
         int l = 0; //create an array for the end term
-        for (int k = 1; k < m; k++) {
+        for (int k = 1; k <= m; k++) {
             if (m % k == 0) {
-                end[l] = k-1;
+                end[l] = k;
                 l++;
             }
         }
@@ -40,7 +40,7 @@ public class CubicZeroSolver {
         //lead = Arrays.copyOf(lead, i);
 
 
-        return lead;
+        return end;
     }
 
     //old method, deprecated:
