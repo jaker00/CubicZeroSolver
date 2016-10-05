@@ -23,24 +23,35 @@ public class CubicZeroSolver {
         }
 
         //erase all values in the lead array equal to 0 (extra array values)
-//        for (i = j = 0; j < lead.length; ++j)
-//            if (0 == lead[j]) lead[i++] = lead[j];
-//        lead = Arrays.copyOf(lead, i);
+        j = 0;
+        for(i=0;  i<lead.length;  i++ ) {
+            if (lead[i] != 0)
+                lead[j++] = lead[i];
+        }
+        double [] newLead = new double[j];
+        System.arraycopy( lead, 0, newLead, 0, j );
 
-        int l = 0; //create an array for the end term
-        for (int k = 1; k <= m; k++) {
-            if (m % k == 0) {
-                end[l] = k;
-                l++;
+
+         //create an array for the end term
+        j = 0;
+        for (i = 1; i <= m; i++) {
+            if (m % i == 0) {
+                end[j] = i;
+                j++;
             }
         }
         //erase all values in the end array equal to 0 (extra array values)
-        //for (i = j = 0; j < lead.length; ++j)
-        //    if (0 == lead[j]) lead[i++] = lead[j];
-        //lead = Arrays.copyOf(lead, i);
+        j = 0;
+        for(i=0;  i<end.length;  i++ )
+        {
+            if (end[i] != 0)
+                end[j++] = end[i];
+        }
+        double [] newEnd = new double[j];
+        System.arraycopy( end, 0, newEnd, 0, j );
+        //return newEnd;
+        return newLead;
 
-
-        return end;
     }
 
     //old method, deprecated:
